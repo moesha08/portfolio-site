@@ -1,57 +1,69 @@
 import React from 'react';
 
 /**
- * Projects Component - Showcases portfolio projects
+ * Projects Component - Modern and responsive showcase
  */
 const Projects = () => {
   const projects = [
     {
       id: 1,
       title: "FinWise - Personal Finance Assistant",
-      description: "A database-driven project designed to help users manage personal finances. Includes ERD, SQL scripts, and queries for managing expenses, income, and savings goals.",
-      image: "https://placehold.co/400x300/3498db/ffffff?text=FinWise",
+      description: "Manage personal finances with ERD, SQL scripts, and queries for expenses, income, and savings goals.",
+      image: "/images/finwise.png",
       role: "Database Designer & Developer",
-      technologies: ["SQL", "ERD", "Relational Databases"]
+      technologies: ["SQL", "ERD", "Relational Databases"],
+      github: "https://github.com/moesha08/finwise",
+      live: ""
     },
     {
       id: 2,
       title: "React Portfolio Website",
-      description: "This personal portfolio website created using React, React Router, and CSS. Features multiple pages including Home, About, Projects, Services, and Contact with a working form.",
-      image: "https://placehold.co/400x300/2ecc71/ffffff?text=Portfolio+Site",
+      description: "Personal portfolio website with multiple pages including Home, About, Projects, Services, and Contact with working form.",
+      image: "/images/portfolio.png",
       role: "Front-End Developer",
-      technologies: ["React", "React Router", "CSS", "Vite"]
+      technologies: ["React", "React Router", "CSS", "Vite"],
+      github: "https://github.com/moesha08/portfolio-site",
+      live: ""
     },
     {
       id: 3,
       title: "IFLDS - Intelligent Freight Logistics Dispatch System",
-      description: "A software engineering project that includes requirements specification, UML diagrams, and system modeling for a freight logistics dispatch platform.",
-      image: "https://placehold.co/400x300/f39c12/ffffff?text=IFLDS",
+      description: "Requirements specification, UML diagrams, and system modeling for a freight logistics dispatch platform.",
+      image: "/images/iflds.png",
       role: "System Analyst",
-      technologies: ["UML", "SRS", "Use Case Modeling"]
+      technologies: ["UML", "SRS", "Use Case Modeling"],
+      github: "https://github.com/moesha08/iflds",
+      live: ""
     },
     {
       id: 4,
       title: "Restaurant Booking System",
-      description: "A reservation management system prototype that allows customers to book tables online. Features include table scheduling, customer records, and basic notifications.",
-      image: "https://placehold.co/400x300/9b59b6/ffffff?text=Booking+System",
+      description: "Reservation management system with table scheduling, customer records, and notifications.",
+      image: "/images/booking.png",
       role: "Full-Stack Student Developer",
-      technologies: ["React", "Node.js", "PostgreSQL", "APIs"]
+      technologies: ["React", "Node.js", "PostgreSQL", "APIs"],
+      github: "https://github.com/moesha08/restaurant-booking",
+      live: ""
     },
     {
       id: 5,
       title: "Public Transportation Management System",
-      description: "A conceptual project for managing bus and train schedules, passenger information, and ticketing. Includes requirements documentation, system modeling, and mock interfaces.",
-      image: "https://placehold.co/400x300/1abc9c/ffffff?text=Transport+System",
+      description: "Manage bus/train schedules, passengers, and ticketing. Includes documentation, system modeling, and mock interfaces.",
+      image: "/images/public-transport.png",
       role: "System Designer",
-      technologies: ["UML", "SRS", "System Modeling"]
+      technologies: ["UML", "SRS", "System Modeling"],
+      github: "https://github.com/moesha08/transport-system",
+      live: ""
     },
     {
       id: 6,
       title: "Cloud Deployment Project",
-      description: "Deployment of web applications using modern cloud platforms. Includes setup of a React portfolio site on Vercel and a database-driven project on Netlify. Learning integration with Azure fundamentals.",
-      image: "https://placehold.co/400x300/2980b9/ffffff?text=Cloud+Deployment",
+      description: "Deploy web apps using cloud platforms. React portfolio on Vercel, database project on Netlify, integrating Azure fundamentals.",
+      image: "/images/cloud-deploy.png",
       role: "Student Developer",
-      technologies: ["Vercel", "Netlify", "Azure", "GitHub"]
+      technologies: ["Vercel", "Netlify", "Azure", "GitHub"],
+      github: "https://github.com/moesha08/cloud-deployment",
+      live: ""
     }
   ];
 
@@ -62,11 +74,13 @@ const Projects = () => {
         <section className="projects-grid" aria-label="Portfolio Projects">
           {projects.map(project => (
             <article key={project.id} className="project-card">
-              <img 
-                src={project.image} 
-                alt={`Screenshot of ${project.title}`} 
-                className="project-image" 
-              />
+              <div className="project-image-wrapper">
+                <img 
+                  src={project.image} 
+                  alt={`Screenshot of ${project.title}`} 
+                  className="project-image" 
+                />
+              </div>
               <div className="project-info">
                 <h3>{project.title}</h3>
                 <span className="role">{project.role}</span>
@@ -74,6 +88,18 @@ const Projects = () => {
                 <p className="technologies">
                   <strong>Technologies:</strong> {project.technologies.join(', ')}
                 </p>
+                <div className="project-links">
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer" className="project-link">
+                      GitHub
+                    </a>
+                  )}
+                  {project.live && (
+                    <a href={project.live} target="_blank" rel="noreferrer" className="project-link">
+                      Live Demo
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}

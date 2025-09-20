@@ -6,14 +6,14 @@ const Footer = () => (
     <p>
       Connect with me:
       <a
-        href="https://www.linkedin.com/in/your-profile"
+        href="https://www.linkedin.com/in/moesha-aurelle-emaleu-deutou-950000386"
         target="_blank"
         rel="noreferrer"
       >
         {" "}LinkedIn
       </a>{" "}|
       <a
-        href="https://github.com/your-profile"
+        href="https://github.com/moesha08/portfolio-site"
         target="_blank"
         rel="noreferrer"
       >

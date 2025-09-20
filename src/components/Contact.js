@@ -1,6 +1,6 @@
 // src/components/Contact.js
 import React, { useState } from "react";
-import "../components/Contact.css"; // Make sure you create this CSS file
+import "../components/Contact.css"; // Make sure this CSS file exists
 
 const Contact = ({ setCurrentPage }) => {
   const [form, setForm] = useState({
@@ -17,7 +17,20 @@ const Contact = ({ setCurrentPage }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Message sent! Redirecting to Home page...");
-    setCurrentPage("home");
+
+    // ✅ Reset form fields
+    setForm({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+
+    // ✅ Use setCurrentPage only if it exists
+    if (typeof setCurrentPage === "function") {
+      setCurrentPage("home");
+    }
   };
 
   return (

@@ -22,7 +22,7 @@
   display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
-  background-color: #a781d3;
+  background-color: #d381be;
   color: #fff;
   border-radius: 8px;
   font-weight: 600;
@@ -31,7 +31,7 @@
 }
 
 .resume-link:hover {
-  background-color: #925bb5;
+  background-color: #f8afec;
   transform: translateY(-2px);
 }
 

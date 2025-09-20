@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-  --primary: #a781d3; /* Soft purple */
-  --secondary: #f6e0f0; /* Blush pink */
-  --accent: #ffe5ec; /* Light pink */
-  --text-dark: #333;
+  --primary: #2ba8f0; /* Soft purple */
+  --secondary: #e0f5f6; /* Blush pink */
+  --accent: #fdbde8; /* Light pink */
+  --text-dark: #1d1515;
   --text-light: #fff;
-  --card-shadow: rgba(0,0,0,0.08);
+  --card-shadow: rgba(228, 167, 167, 0.08);
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -18,10 +18,10 @@ a { text-decoration:none; color: inherit; }
 .navbar { background:linear-gradient(90deg, var(--primary), var(--secondary)); padding:1rem 0; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px var(--card-shadow);}
 .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; padding:0 1rem; }
 .logo { display:flex; align-items:center; cursor:pointer; font-weight:600; color:var(--text-light); font-size:1.25rem; }
-.logo-shape { width:40px; height:40px; border-radius:50%; background:#fff; color:var(--primary); display:flex; justify-content:center; align-items:center; font-weight:bold; margin-right:0.5rem; }
+.logo-shape { width:40px; height:40px; border-radius:50%; background:#fcb6c5; color:var(--primary); display:flex; justify-content:center; align-items:center; font-weight:bold; margin-right:0.5rem; }
 .nav-links { display:flex; gap:2rem; list-style:none; }
 .nav-links li a.active { font-weight:bold; border-bottom:2px solid var(--text-light); }
-.mobile-menu-button { display:none; font-size:2rem; background:none; border:none; color:white; cursor:pointer; }
+.mobile-menu-button { display:none; font-size:2rem; background:none; border:none; color:rgb(247, 212, 212); cursor:pointer; }
 @media (max-width:768px) {
   .nav-links { position:absolute; top:70px; left:0; right:0; background:var(--primary); flex-direction:column; display:none; text-align:center; padding:1rem 0; }
   .nav-links.mobile-active { display:flex; }

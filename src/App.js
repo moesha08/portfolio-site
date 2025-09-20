@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -5,36 +6,23 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import "./App.css"; // main CSS
 
-const App = () => {
+function App() {
   const [currentPage, setCurrentPage] = useState("home");
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case "home":
-        return <Home setCurrentPage={setCurrentPage} />;
-      case "about":
-        return <About />;
-      case "projects":
-        return <Projects />;
-      case "services":
-        return <Services />;
-      case "contact":
-        return <Contact />;
-      default:
-        return <Home setCurrentPage={setCurrentPage} />;
-    }
-  };
-
   return (
-    <div>
+    <div className="App">
+      {/* Pass both currentPage and setCurrentPage to Navbar */}
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {renderPage()}
-      <Footer />
+
+      {/* Conditionally render pages and pass setCurrentPage */}
+      {currentPage === "home" && <Home setCurrentPage={setCurrentPage} />}
+      {currentPage === "about" && <About setCurrentPage={setCurrentPage} />}
+      {currentPage === "projects" && <Projects setCurrentPage={setCurrentPage} />}
+      {currentPage === "services" && <Services setCurrentPage={setCurrentPage} />}
+      {currentPage === "contact" && <Contact setCurrentPage={setCurrentPage} />}
     </div>
   );
-};
+}
 
 export default App;

@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
+import "../components//Navbar.css"; // Import the styling
 
 /**
- * Navbar Component - Navigation with custom logo and responsive menu
+ * Navbar Component - Responsive navigation bar with custom logo
  * Includes accessibility features and smooth animations
  */
 const Navbar = ({ currentPage, setCurrentPage }) => {
@@ -9,46 +10,40 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
   const handleNavigation = (page) => {
     setCurrentPage(page);
-    setIsMobileMenuOpen(false);
+    setIsMobileMenuOpen(false); // Close mobile menu after selection
   };
+
+  const pages = ["home", "about", "projects", "services", "contact"];
 
   return (
     <nav className="navbar">
       <div className="nav-container">
-        {/* Custom Logo - Meets assignment requirements */}
-        <div className="logo" onClick={() => handleNavigation('home')}>
+        {/* Logo */}
+        <div className="logo" onClick={() => handleNavigation("home")}>
           <div className="logo-shape">MA</div>
-          <h2>Moesha Aurelle</h2>
+          <h2 className="logo-text">Moesha Aurelle</h2>
         </div>
 
         {/* Desktop Navigation */}
         <ul className="nav-links">
-          {['home', 'about', 'projects', 'services', 'contact'].map((page) => (
+          {pages.map((page) => (
             <li key={page}>
-              <a
+              <button
                 onClick={() => handleNavigation(page)}
-                className={currentPage === page ? 'active' : ''}
-                aria-current={currentPage === page ? 'page' : undefined}
+                className={currentPage === page ? "active" : ""}
+                aria-current={currentPage === page ? "page" : undefined}
               >
                 {page.charAt(0).toUpperCase() + page.slice(1)}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <button
           className="mobile-menu-button"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle navigation menu"
-          style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
-            color: 'white',
-            fontSize: '1.5rem',
-            cursor: 'pointer'
-          }}
         >
           ☰
         </button>
@@ -57,14 +52,14 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="mobile-nav">
-          {['home', 'about', 'projects', 'services', 'contact'].map((page) => (
-            <a
+          {pages.map((page) => (
+            <button
               key={page}
               onClick={() => handleNavigation(page)}
-              className={currentPage === page ? 'active' : ''}
+              className={currentPage === page ? "active" : ""}
             >
               {page.charAt(0).toUpperCase() + page.slice(1)}
-            </a>
+            </button>
           ))}
         </div>
       )}

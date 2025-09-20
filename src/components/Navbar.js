@@ -21,13 +21,14 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         <ul className={`nav-links ${isMobileOpen ? "mobile-active" : ""}`}>
           {pages.map((page) => (
             <li key={page}>
-              <a
+              <button
+                type="button"
                 onClick={() => handleNavClick(page)}
                 className={currentPage === page ? "active" : ""}
                 aria-current={currentPage === page ? "page" : undefined}
               >
                 {page.charAt(0).toUpperCase() + page.slice(1)}
-              </a>
+              </button>
             </li>
           ))}
         </ul>

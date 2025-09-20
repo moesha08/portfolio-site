@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import "./App.css"; // main CSS
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
@@ -21,7 +22,7 @@ const App = () => {
       case "services":
         return <Services />;
       case "contact":
-        return <Contact setCurrentPage={setCurrentPage} />;
+        return <Contact />;
       default:
         return <Home setCurrentPage={setCurrentPage} />;
     }

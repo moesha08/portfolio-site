@@ -32,18 +32,18 @@ const Services = () => {
     <div className="page">
       <div className="container">
         <h2 className="page-title">Services</h2>
-        <div className="services-grid">
+        <section className="services-grid" aria-label="Offered Services">
           {services.map((service, idx) => (
-            <div key={idx} className="service-card">
-              <div className="service-icon">{service.icon}</div>
+            <article key={idx} className="service-card">
+              <div className="service-icon" aria-hidden="true">{service.icon}</div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
               <ul>
                 {service.features.map((f, i) => (<li key={i}>{f}</li>))}
               </ul>
-            </div>
+            </article>
           ))}
-        </div>
+        </section>
       </div>
     </div>
   );

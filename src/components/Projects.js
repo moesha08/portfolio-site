@@ -2,7 +2,6 @@ import React from 'react';
 
 /**
  * Projects Component - Showcases portfolio projects
- * Features at least 3 projects as required by the assignment
  */
 const Projects = () => {
   const projects = [
@@ -60,26 +59,25 @@ const Projects = () => {
     <div className="page">
       <div className="container">
         <h2 className="page-title">Projects</h2>
-        <div className="projects-grid">
+        <section className="projects-grid" aria-label="Portfolio Projects">
           {projects.map(project => (
-            <div key={project.id} className="project-card">
+            <article key={project.id} className="project-card">
               <img 
                 src={project.image} 
-                alt={project.title} 
+                alt={`Screenshot of ${project.title}`} 
                 className="project-image" 
               />
               <div className="project-info">
                 <h3>{project.title}</h3>
                 <span className="role">{project.role}</span>
                 <p>{project.description}</p>
-                <div className="technologies">
-                  <strong>Technologies: </strong>
-                  {project.technologies.join(', ')}
-                </div>
+                <p className="technologies">
+                  <strong>Technologies:</strong> {project.technologies.join(', ')}
+                </p>
               </div>
-            </div>
+            </article>
           ))}
-        </div>
+        </section>
       </div>
     </div>
   );

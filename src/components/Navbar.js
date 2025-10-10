@@ -1,40 +1,47 @@
-import React from "react";
-import "../components//Navbar.css"; // Import the styling
+// src/components/Navbar.js
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./Navbar.css";
 
-/**
- * Navbar Component - Responsive navigation bar with custom logo
- * Includes accessibility features and smooth animations
- */
-const Navbar = ({ currentPage, setCurrentPage }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
-  const handleNavigation = (page) => {
-    setCurrentPage(page);
-    setIsMobileMenuOpen(false); // Close mobile menu after selection
+  const pages = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Projects", path: "/projects" },
+    { name: "Services", path: "/services" },
+    { name: "Contact", path: "/contact" }
+  ];
+
+  const isActive = (path) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname === path;
   };
-
-  const pages = ["home", "about", "projects", "services", "contact"];
 
   return (
     <nav className="navbar">
       <div className="nav-container">
         {/* Logo */}
-        <div className="logo" onClick={() => handleNavigation("home")}>
+        <Link to="/" className="logo">
           <div className="logo-shape">MA</div>
           <h2 className="logo-text">Moesha Aurelle</h2>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="nav-links">
           {pages.map((page) => (
-            <li key={page}>
-              <button
-                onClick={() => handleNavigation(page)}
-                className={currentPage === page ? "active" : ""}
-                aria-current={currentPage === page ? "page" : undefined}
+            <li key={page.path}>
+              <Link
+                to={page.path}
+                className={isActive(page.path) ? "active" : ""}
+                aria-current={isActive(page.path) ? "page" : undefined}
               >
-                {page.charAt(0).toUpperCase() + page.slice(1)}
-              </button>
+                {page.name}
+              </Link>
             </li>
           ))}
         </ul>
@@ -53,13 +60,14 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
       {isMobileMenuOpen && (
         <div className="mobile-nav">
           {pages.map((page) => (
-            <button
-              key={page}
-              onClick={() => handleNavigation(page)}
-              className={currentPage === page ? "active" : ""}
+            <Link
+              key={page.path}
+              to={page.path}
+              className={isActive(page.path) ? "active" : ""}
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              {page.charAt(0).toUpperCase() + page.slice(1)}
-            </button>
+              {page.name}
+            </Link>
           ))}
         </div>
       )}

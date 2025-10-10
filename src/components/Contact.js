@@ -1,8 +1,9 @@
 // src/components/Contact.js
 import React, { useState } from "react";
-import "../components/Contact.css"; // Make sure this CSS file exists
+import { useNavigate } from "react-router-dom";
+import "./Contact.css";
 
-const Contact = ({ setCurrentPage }) => {
+const Contact = () => {
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -10,6 +11,8 @@ const Contact = ({ setCurrentPage }) => {
     phone: "",
     message: "",
   });
+  
+  const navigate = useNavigate();
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,7 +21,7 @@ const Contact = ({ setCurrentPage }) => {
     e.preventDefault();
     alert("Message sent! Redirecting to Home page...");
 
-    // ✅ Reset form fields
+    // Reset form fields
     setForm({
       firstName: "",
       lastName: "",
@@ -27,10 +30,8 @@ const Contact = ({ setCurrentPage }) => {
       message: "",
     });
 
-    // ✅ Use setCurrentPage only if it exists
-    if (typeof setCurrentPage === "function") {
-      setCurrentPage("home");
-    }
+    // Navigate to home page
+    navigate("/");
   };
 
   return (
@@ -60,7 +61,7 @@ const Contact = ({ setCurrentPage }) => {
             <p>
               <strong>LinkedIn:</strong>{" "}
               <a
-                href="https://www.linkedin.com/in/moesha-aurelle-emaleu-deutou-950000386/"
+                href="https://www.linkedin.com/feed/"
                 target="_blank"
                 rel="noreferrer"
               >
